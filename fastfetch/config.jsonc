@@ -1,0 +1,44 @@
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+        "source": "C://Users/bilay/.config/fastfetch/cat.txt",
+        "type": "auto",
+        "height": 15,
+        "width": 26,
+        "padding": {
+            "top": 0,
+            "left": 2,
+            "right": 6
+        }
+    },
+  "modules": [
+    {
+        "type": "os",
+        "key": " OS",
+        "keyColor": "cyan"
+    },
+    {
+        "type": "packages",
+        "key": " Packages",
+        "keyColor": "cyan"
+    },
+    {
+        "type": "uptime",
+        "key": " Uptime",
+        "keyColor": "cyan"
+    },
+    {
+        "type": "command",
+        "key": " OS Age",
+        "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+        "keyColor": "cyan"
+    },
+    {
+      "type": "shell",
+      "key": " Shell",
+      "keyColor": "cyan", 
+    },
+  ]
+}
+

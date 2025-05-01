@@ -1,0 +1,243 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+
+komorebi:
+  start_command: "komorebic start"
+  stop_command: "komorebic stop"
+  reload_command: "komorebic stop && komorebic start"
+
+bars:
+  status-bar:
+    enabled: true
+    screens: ['*'] 
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    blur_effect:
+      enabled: true
+      acrylic: true 
+      dark_mode: true
+      round_corners: false
+      border_color: None
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 38
+    padding:
+      top: 0
+      left: 0
+      bottom: 2
+      right: 0
+    widgets:
+      left: ["komorebi_workspaces"]
+      center: ["active_window"]
+      right: ["cava","media","volume","clock","power_menu"]
+widgets:
+  media:
+      type: "yasb.media.MediaWidget"
+      options:
+        label: "<span>\uf001</span> {title}"
+        label_alt: "<span>\uf001</span> {artist}"
+        hide_empty: true
+        max_field_size:
+          label: 60
+          label_alt: 20
+        show_thumbnail: false
+        controls_only: false
+        controls_left: true
+        thumbnail_alpha: 0
+        thumbnail_padding: 0
+        thumbnail_corner_radius: 0
+        icons:
+          prev_track: "\udb80\udc4e"
+          next_track: "\udb80\udc55"
+          play: "\uf04b"
+          pause: "\uf04c"
+  clock:
+      type: "yasb.clock.ClockWidget"
+      options:
+        label: "{%H:%M}"
+        label_alt: "{%a, %d %b %H:%M:%S}"
+        timezones: [] #Looking up time zone info from registry
+  komorebi_workspaces:
+      type: "komorebi.workspaces.WorkspaceWidget"
+      options:
+          label_offline: "\u26a1 Offline"
+          label_workspace_btn: "{index}"
+          label_workspace_active_btn: "{index}"
+          label_workspace_populated_btn: "{index}"
+          label_default_name: "{index}"
+          label_zero_index: false
+          hide_empty_workspaces: true
+          hide_if_offline: false
+          animation: true
+          container_padding:
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0 
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      bar_height: 12
+      gradient: 0
+      reverse: 0
+      foreground: "#a6da95"
+      gradient_color_1: '#74c7ec'
+      gradient_color_2: '#89b4fa'
+      gradient_color_3: '#cba6f7'
+      bars_number: 6
+      bar_spacing: 2
+      bar_width: 3
+      sleep_timer: 2
+      hide_empty: true
+      container_padding:
+        top: 0
+        left: 8
+        bottom: 0
+        right: 8
+  volume:
+      type: "yasb.volume.VolumeWidget"
+      options:
+        label: "<span>{icon}</span> {level}"
+        label_alt: "{volume}"
+        volume_icons:
+          - "\ueee8"  # Icon for muted
+          - "\uf026"  # Icon for 0-10% volume
+          - "\uf027"  # Icon for 11-30% volume
+          - "\uf027"  # Icon for 31-60% volume
+          - "\uf028"  # Icon for 61-100% volume
+        callbacks:
+          on_right: "do_nothing"
+          on_left: "do_nothing"
+        audio_menu:
+          blur: True
+          round_corners: True
+          round_corners_type: 'normal'
+          border_color: 'System'
+          alignment: 'right'
+          direction: 'down'
+          distance: 6
+  power_menu:
+      type: "yasb.power_menu.PowerMenuWidget"
+      options:
+        label: "\uf011"
+        uptime: True
+        blur: False
+        blur_background: True
+        animation_duration: 250 # Milisecond 
+        button_row: 4 # Number of buttons in row, min 1 max 5
+        buttons:
+          signout: ["\udb80\udf43","Sign out"]
+          shutdown: ["\uf011","Shut Down"]
+          restart: ["\uead2","Restart"]
+          cancel: ["\udb81\udf3a","Cancel"]
+  active_window:
+      type: "yasb.active_window.ActiveWindowWidget"
+      options:
+        label: "{win[title]}"
+        label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
+        label_no_window: ""
+        label_icon: false
+        label_icon_size: 12
+        max_length: 36
+        max_length_ellipsis: "..."
+        monitor_exclusive: true
+        container_padding: 
+          {
+            'top': 0,
+            'left': 0,
+            'bottom': 0,
+            'right': 0
+          }
+  battery:
+      type: "yasb.battery.BatteryWidget"
+      options:
+        label: "<span>{icon}</span>{percent}%"
+        label_alt: "{icon} {percent}% | time: {time_remaining}"
+        charging_options:
+          icon_format: "{charging_icon}"
+  language:
+      type: "yasb.language.LanguageWidget"
+      options:
+        label: "{lang[language_code]}"
+        label_alt: "{lang[full_name]}"
+        update_interval: 1
+        callbacks:
+          on_left: "toggle_label"
+          on_middle: "do_nothing"
+          on_right: "do_nothing"
+  memory:
+      type: "yasb.memory.MemoryWidget"
+      options:
+        label: "<span>\uf4bc</span> {virtual_mem_free}/{virtual_mem_total}"
+        label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
+        update_interval: 5000
+        callbacks:
+          on_left: 'toggle_label'
+          on_middle: 'do_nothing'
+          on_right: 'do_nothing'
+        memory_thresholds:
+          low: 25
+          medium: 50
+      high: 90
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\udb83\ude09</span>"
+      image_path: "C:\\users\\bilay\\pictures\\wallpapers" # Example path to folder with images
+      change_automatically: false # Automatically change wallpaper
+      update_interval: 60 # If change_automatically is true, update interval in seconds
+      gallery:
+          enabled: true
+          blur: true
+          image_width: 200
+          image_per_page: 8
+          show_buttons: true
+          orientation: "portrait"
+          image_spacing: 8
+          lazy_load: true
+          lazy_load_delay: 80
+          lazy_load_fadein: 400
+          image_corner_radius: 20
+          enable_cache: true
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name}"
+      update_interval: 5000
+      callbacks:
+        on_left: "exec cmd.exe /c start ms-settings:network"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+  obs:
+    type: "yasb.obs.ObsWidget"
+    options:  
+      connection:
+        host: "193.147.0.101"
+        port: 4400
+        password: "yourstrongpassword:3"
+      icons:
+        recording: "\ueba7"
+        stopped: "\ueba5"
+        paused: "\ueba7"
+      hide_when_not_recording: true
+      blinking_icon: true
+  update:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      winget_update:
+        enabled: true
+        label: "<span>\uf0ab</span>{count}"
+        interval: 180
+        exclude: []
+      windows_update:
+        enabled: false
+        label: "<span>\uf0ab</span>{count}"
+        interval: 240
+        exclude: []

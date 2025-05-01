@@ -1,0 +1,259 @@
+:root {
+    --bg: #232136; /*base*/
+	--dim: #5a576b; /*subtle*/
+    --dim1: #918ea0;
+	--fg: #e0def4; /*text*/
+    --acc: #a6da95; /*green*/
+}
+*{
+	font-size: 14px;
+	color: var(--dim);
+	font-weight: 700;
+	font-family: "CaskaydiaCove NFP";
+	margin: 0;
+	padding: 0;
+}
+.yasb-bar {
+	padding: 0 0px;
+	margin: 0;
+    background-color: var(--bg);
+}
+
+.container-left {
+    margin: 4px;
+    border: 2px solid var(--dim);
+}
+
+.container-right {
+    margin: 4px;
+    border: 2px solid var(--dim);
+}
+
+.container-center {
+    margin: 4px;
+    border: 2px solid var(--dim);
+}
+
+.container-left:hover {
+    margin: 4px;
+    border-color: var(--acc);
+}
+
+.container-right:hover {
+    margin: 4px;
+    border-color: var(--acc);
+}
+
+.container-center:hover {
+    margin: 4px;
+    border-color: var(--acc);
+}
+
+.widget {
+	padding: 0px;
+	margin: 0 2px;
+}
+
+.widget .label {
+    color: var(--fg);
+    margin: 0 4px;
+}
+.widget .label.alt {
+    color: var(--fg);
+}
+.komorebi-workspaces .widget-container {
+    margin-left: 0px;
+    padding-left: 0px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none
+}
+
+.komorebi-workspaces .offline-status {
+    color: var(--fg);
+    font-size: 12px;
+    padding: 0 0px;
+    font-weight: 600;
+}
+.komorebi-workspaces .ws-btn {
+    border: none;
+    background-color: var(--dim);
+    width: 10px;
+    height: 10px;
+    border-radius: 0px;
+    margin-right: 2px;
+    margin-left: 1px;
+    font-size: 12px;
+	color:  #3a3e4d;
+    width: 20px;
+    height: 20px;
+
+}
+.komorebi-workspaces .ws-btn:hover {
+    color: var(--fg);
+    background-color: var(--dim);
+}
+.komorebi-workspaces .ws-btn.populated:hover {
+    color: var(--fg);
+    background-color: var(--dim1);
+}
+.komorebi-workspaces .ws-btn.populated {
+    color: var(--fg);
+    background-color: var(--dim);
+}
+.komorebi-workspaces .ws-btn.active {
+    color: var(--bg);
+    background-color: var(--acc);
+}
+
+.uptime {
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: var(--dim1);
+	font-weight: 600;
+}
+.power-menu-widget .label {
+	color: var(--acc);
+	font-size: 16px;
+    margin-right: 4px;
+}
+.power-menu-popup .button {
+	padding: 0;
+	width: 160px;
+	height: 240px;
+	border-radius: 6px;
+	background-color: rgba(41, 42, 58, 0.75);
+	color: white;
+	border: 4px solid rgba(255, 255, 255, 0);
+ 
+}
+.power-menu-popup .button.hover {
+	background-color: rgb(55, 56, 75);
+	border: 4px solid rgb(55, 56, 75);
+}
+.power-menu-popup .button .label {
+	margin-bottom: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.6);
+}
+.power-menu-popup .button .icon {
+	font-size: 64px;
+	padding-top: 54px;
+	color: rgba(255, 255, 255, 0.25);
+}
+.power-menu-popup .button.cancel .icon {
+	color: var(--acc);
+}
+.power-menu-popup .button.cancel .label {
+	color: var(--acc);
+}
+
+/* ICONS */
+.icon {
+	font-size: 16px;
+}
+.volume-widget .icon {
+	font-size: 15px;
+	color: var(--fg);
+	margin: 1px 3px 1px 0px;
+} 
+
+.media-widget {
+	padding: 0;
+	margin: 0;
+}
+.media-widget .label {
+	color: var(--fg);
+    padding: 0px;
+	padding-right: 16px;
+}
+.media-widget .btn {
+	color: var(--dim);
+	padding: 0 0px;
+	padding-right: 0px;
+	margin: 4px 0;
+}
+.media-widget .btn:hover {
+	color: var(--fg);
+}
+.media-widget .btn.play {
+	font-size: 16px;
+}
+.media-widget .btn.prev {
+    padding: 0 0px 0 0px;	
+    font-size: 12px;
+}
+.media-widget .btn.next {
+    padding: 0 8px 0 0px;
+    font-size: 12px;
+}
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+	color: var(--dim1);
+	font-size: 12px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.update-check-widget {
+    padding: 0 4px 0 0px;
+}
+.update-check-widget .icon {
+    font-size: px;
+}
+.update-check-widget .widget-container.winget,
+.update-check-widget .widget-container.windows {
+    background: var(--acc);
+    margin: 7px 2px 7px 2px;
+    border-radius: 10px;
+    border: 0px solid var(--acc);
+}
+.update-check-widget .widget-container.winget .icon,
+.update-check-widget .widget-container.windows .icon {
+    color: var(--bg);
+    margin: 0 2px 0 6px;
+}
+.update-check-widget .widget-container.winget .label,
+.update-check-widget .widget-container.windows .label {
+    margin: 0 6px 0 1px;
+    color: var(--bg);
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.active-window-widget .widget-container .label {
+    color: var(--fg);
+}
+
+.volume-slider::groove {}
+.volume-slider::handle{} 
+.audio-menu {
+    background-color: var(--highlight-low);
+    border: 2px solid var(--highlight-high);
+    border-radius: 6px;
+}
+.audio-menu:hover {
+    border-color: var(--pink);
+}
+.audio-container .device {
+    background-color: transparent;
+    border: none;
+    padding:6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.audio-container .device.selected {
+    background-color: var(--pink);
+    color: var(--base);
+}
+.audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.notification-widget .icon.new-notification {
+    color: var(--acc);
+}
+.notification-widget .label.new-notification {
+    color: var(--acc);
+}
